@@ -7,7 +7,7 @@
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="./assets/css/styles.css" />
 		<title>Weather Dashboard</title>
 	</head>
 
@@ -25,30 +25,41 @@
 						<div class="container">
 							<div class="row">
 								<div class="col-sm-12">
-									<h3>Search for a City:</h3>
-									<form class="form-inline">
-										<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-										<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+									<form id="search-form">
+										<div class="form-group">
+											<label for="search-term">Search for a City</label>
+											<input type="text" class="form-control" id="search-term" />
+										</div>
+										<button type="submit" id="search" class="btn btn-primary">Submit</button>
 									</form>
-									<br />
-									<ul class="list-group">
-										<li class="list-group-item">Cras justo odio</li>
-										<li class="list-group-item">Dapibus ac facilisis in</li>
-										<li class="list-group-item">Morbi leo risus</li>
-										<li class="list-group-item">Porta ac consectetur ac</li>
-										<li class="list-group-item">Vestibulum at eros</li>
-									</ul>
+								</div>
+								<div class="row">
+									<div class="col-sm-12" id="previous-searches"></div>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="col-sm-8"></div>
+					<div class="col-sm-8" id="weather-display">
+						<div class="row border">
+							<div class="col-sm-12" id="current-weather">
+								<div class="city"></div>
+								<div class="temp"></div>
+								<div class="humidity"></div>
+								<div class="wind"></div>
+								<div class="uvIndex"></div>
+							</div>
+						</div>
+						<div class="row">
+							<h1>5-day Forecast:</h1>
+							<div class="col-sm-12" id="5-day-forecast"></div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</main>
 
 		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-		<script src="./scripts/script.js"></script>
+		<script src="./assets/scripts/script.js"></script>
 	</body>
 </html>
