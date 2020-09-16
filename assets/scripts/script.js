@@ -1,6 +1,9 @@
 $(function () {
 	//This is our API Key
 	var APIKey = "a195f2b0d154e3f67cf10cc5aa7ae73a";
+	var currentDay = moment().format("(L)");
+
+	//$("#currentDay").text(currentDay);
 
 	$("#search").on("click", function (event) {
 		event.preventDefault();
@@ -25,8 +28,10 @@ $(function () {
 		}).then(function (response) {
 			// Log the queryURL
 
+			currentIconEl = $("<img>").attr("src", "https://openweathermap.org/img/wn/" + response.weather[0].icon + ".png");
+
 			// Transfer content to HTML
-			$(".city").html("<h1>" + response.name + " Weather Details</h1>");
+			$(".city").html("<h2>" + response.name + " " + currentDay + "</h2>" + currentIconEl);
 			$(".temp").text("Temperature(F) " + response.main.temp);
 			$(".wind").text("Wind Speed: " + response.wind.speed);
 			$(".humidity").text("Humidity: " + response.main.humidity);
@@ -45,7 +50,9 @@ $(function () {
 			console.log(response);
 
 			//get element by id 5-day-forecast
-			// create 5 cards - 1 for each day
+			$("#5-day-forecast").empty();
+			// create forecast elements that will be placed in a for loop
+
 			// append each card to that element
 
 			/*			
