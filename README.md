@@ -47,11 +47,9 @@ Below are is a screen shot of the Work-Day-Scheduler.
 
 I would like to credit georgia tech's coding bootcamp and my tutor, Kevin Ferguson for helping me reinforce core concepts related to DOM manipulation and local storage.
 
-TBD
-
 ## License
 
-TBD
+Please feel free to use the source code as you please.
 
 ---
 
