@@ -49,7 +49,7 @@ I would like to credit georgia tech's coding bootcamp and my tutor, Kevin Fergus
 
 ## License
 
-Please feel free to use the source code as you please.
+Please feel free to use the source code as you please.git
 
 ---
 

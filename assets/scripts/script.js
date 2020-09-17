@@ -8,13 +8,18 @@ $(function () {
 	$("#search").on("click", function (event) {
 		event.preventDefault();
 
-		const searchTerm = $("#search-term").val();
+		var searchTerm = $("#search-term").val();
 
 		// get list of search terms from local storage
+		var searchTerms = localStorage.getItem("search-terms");
 		// convert string to object - JSON.parse()
+		searchTerms = JSON.parse(searchTerms);
 		// unshift search term to put it at the front of the array
+		searchTerms.unshift(searchTerm);
 		// use JSON.stringify to term the array back into a string
+		searchTerms = JSON.stringify(searchTerms);
 		// update localstorage
+		localStorage.setItem("search-terms", searchTerms);
 
 		getWeather(searchTerm);
 	});
@@ -86,7 +91,19 @@ $(function () {
 	}
 
 	// read the search list from localstorage
+	var readSearchTerms = localStorage.getItem("search-terms");
 	// if it doesn't exist create an empty array and
+	if (!readSearchTerms) {
+		readSearchTerms = [];
+		localStorage.setItem("search-terms", JSON.stringify(readSearchTerms));
+	} else {
+		readSearchTerms = JSON.parse(readSearchTerms);
+		var previousSearches = $("#previous-searches");
+
+		for (var i = 0; i < readSearchTerms.length; i++) {
+			previousSearches.append("<p>" + readSearchTerms[i] + "</p>");
+		}
+	}
 	//     - use JSON.stringify to convert to a string
 	//     - put that in local storage
 	// if it does exist use JSON.parse to convert to an array
